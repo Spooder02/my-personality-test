@@ -1,6 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import About from '@/views/About.vue'
+import HelloWorld from '@/components/HelloWorld.vue'
+import ptlist from '@/views/personality-tests.vue'
+import lifestylept from '@/views/lifestyle-personality.vue'
+import lifestylepttest from '@/views/lifestyle-personality-test.vue'
 
 Vue.use(VueRouter)
 
@@ -13,10 +18,33 @@ const routes = [
   {
     path: '/about',
     name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: About
+  },
+  {
+    path: '/HelloWorld',
+    name: 'HelloWorld',
+    component: HelloWorld
+  },
+  {
+    path: '/personality-tests',
+    name: 'ptlist',
+    component: ptlist
+  },
+  {
+    path: '/lifestyle-personality',
+    name: 'lifestyle-personality',
+    component: lifestylept
+  },
+  {
+    path: '/lifestyle-personality-test',
+    name: 'lifestyle-personality-test',
+    component: lifestylepttest
+  },
+  {
+    path: '/results',
+    name: 'results',
+    component: require('@/views/result.vue').default,
+    props: true
   }
 ]
 
