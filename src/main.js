@@ -16,7 +16,9 @@ Vue.component('lifestylept', lifestylept)
 Vue.component('surveyguide', surveyguide)
 Vue.component('forms', Form)
 Vue.component('lifestylepttest', lifestylepttest)
-
+Vue.component('schoolpt', require('@/views/school-personality.vue'))
+Vue.component('schoolpttest', require('@/views/school-personality-test.vue'))
+Vue.component('chatbox', require('@/components/chatbox.vue'))
 
 Vue.config.productionTip = false
 

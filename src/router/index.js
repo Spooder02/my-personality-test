@@ -45,6 +45,23 @@ const routes = [
     name: 'results',
     component: require('@/views/result.vue').default,
     props: true
+  }, 
+  {
+    path: '/school-personality',
+    name: 'school-personality',
+    component: require('@/views/school-personality.vue').default,
+    props: true
+  },
+  {
+    path: '/school-personality-test',
+    name: 'school-personality-test',
+    component: require('@/views/school-personality-test.vue').default,
+    props: true
+  },
+  {
+    path: '/chatbot-test',
+    name: 'chatbot-test',
+    component: require('@/views/chatbot-test.vue').default
   }
 ]
 

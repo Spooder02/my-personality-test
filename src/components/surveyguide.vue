@@ -10,7 +10,7 @@
 			<div class="card">
             <div class="card-image">
                 <figure class="image is-4by3">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" width="100%" height=auto alt="Placeholder image">
+                <img :src="require('@/assets/' + bannerlink)" width="100%" height=auto alt="Placeholder image">
                 </figure>
             </div>
             </div>
@@ -47,6 +47,7 @@
     export default {
         name: 'surveyguide',
         props: {
+            bannerlink: String,
             testname: String,
             esttime: String,
             testdesc: String,

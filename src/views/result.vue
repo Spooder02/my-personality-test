@@ -1,18 +1,23 @@
 <template>
     <div>
         <div class="box">
-		<p class="title is-1" style="text-align: center; padding-top: 1.5%;">
-			{{ resname }}
-		</p>
+			<p v-if="this.$route.params.is === 'lifestyle-personality-test'" class="title is-1" style="text-align: center; padding-top: 1.5%;">일상생활 속 나의 성격 유형은?</p>
+            <p v-else class="title is-1" style="text-align: center; padding-top: 1.5%;">학교 생활 속 나의 유형은?</p>
 	    </div>
         <div class="box">
-            <div class="pre-formatted">{{ results[0].feature }}</div>
+              <p class="title is-3" style="text-align: center; padding-bottom: 0.5%">
+                {{ name }}<br>
+                {{ desc }}
+                </p>  
+        </div>
+        <div v-if="feature != undefined" class="box">
+            <div class="pre-formatted">{{ feature }}</div>
         </div>
     </div>
 </template>
 <style>
     .pre-formatted {
-        text-align: left;
+        text-align: center;
         white-space: pre;
     }
 </style>
@@ -21,15 +26,16 @@
         name: 'results',
         data() {
             return {
-                result: this.$route.query.is,
-                test: this.$route.query.test,
-                results: [
-                    { index: "ISTJ", name: "소금형(ISTJ)", desc: '사실과 근거에 집중하여 꼼꼼한 유형\n매사 철저하게 행동하며 종사하는 곳에서 핵심적인 역할을 가지고 있음', feature: "원리원칙적, 계획적.\n여행가면 나서서 계획 세움.\n즉흥적인거 싫어함 약속 어기는거 싫어함.\n협동하기 싫어함.\n그냥 나 혼자 하는게 젤 편하고 젤 빠름.\n누가 도와준다고 해도 혼자 할 수 있음 혼자 함.\n내 일이랑 의견에 간섭받는 거 싫어함.\n남한테 관심 별로 없는 편.\n내 얘기 하는것도 싫고 남 얘기 들어주는 것도 힘듦 내가 왜 듣고있어야 하는지 모르겠음.\n책임감 많음.\n가끔 공감능력 부족한 거 같다는 소리 들음.\n딱딱하단 소리 자주 들음.\n철벽 잘 침.\n프로젝트 할 때 이야기 딴 곳으로 새는 거 매우 싫어함. 시작했으면 목표한 거 끝내야함.\n시작했으면 목표한거 끝내야함.\n"},
-                    { index: "ESTJ", name: "사업가형(ESTJ) : 엄격한 관리자", desc: '모든 일을 계획적으로 잡고 실행하는 것을 좋아하는 유형\n목표를 위해 열정과 노력을 마다하지 않음', feature: "고집 셈, 현실적, 이성적, 직설적.\n호불호 확실.\n사람 많은거 싫어함.\n리더 맡는 거 싫어하는데 막상 하면 잘함.\n나가서 노는것보단 이것저것 배우는게 좋음.\n외로움 별로 안탐.\n싸우는 거 싫어하지만 싸워서 지는거 싫어함.\n일처리 못하는 거 세상에서 제일 싫음.\n시간약속 어기는 거 싫고 즉흥적인거 싫음.\n남에게 관심없고 오로지 나한테만 집중.\n목표 설정해놓고 그 목표 이룰때까지 한 우물만 팜.\n사람들이 아는 내 성격이랑 혼자 있을 때랑 조금 다름.\n모든게 제자리에 있어야 하고 내 계획이 절대 틀어지면 안됨.\n뭐든 확실한 게 좋음.\n리더역할 주도적으로 자주 함.\n누가 일 못하는 거 못 보고 차라리 그럴바에 내가 두세배로 일 다 해놓음.\n공감능력 부족.\n"},
-                    { index: "ESFJ", name: "친선도모형(ESFJ) : 사교적인 외교관", desc: "타인과의 관계에 신경을 많이 쓰는 사람\n인정받는 것에 굉장히 민감함\n사람과의 교감을 중요시함", feature: "생각보다 철저함.\n혼자 계획 세우고 그 계획 틀어지는 거 싫어함.\n술자리 좋아함.\n남 눈치 많이 봄.\n책 읽고 영화보는 거 좋아함.\n상담, 고민 들어주는 거 잘함.\n친구, 가족 내 주변 인물들 다 챙김.\n인간관계에서 상처받아도 그 사람 배려한다고 얘기 못함.\n어디 나가면 어색한거 못 참고 먼저 말 걺."},
-                ],
-                resname: [ '일상생활 속 나의 성격유형은?' ]
+                index: '',
+                result: this.$route.params.is,
+                name: this.$route.params.id,
+                desc: this.$route.params.desc,
+                feature: this.$route.params.feature
             }
+            
+        },
+        mounted() {
+            console.log(this.$route.params.id)
         }
     }
 </script>

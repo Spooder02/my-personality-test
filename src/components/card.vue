@@ -1,14 +1,14 @@
 <template>
-    <div class="card">
+	<router-link :to="link" tag="div" class="card">
 	<div class="card-image">
 	<figure class="image is-4by3">
-      	<img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+      	<img :src="require('@/assets/'+imgname)" alt="Placeholder image">
     	</figure>
   </div>
- <div class="card-content">
+ 	<div class="card-content">
  	<div class="media">
 		<div class="media-content">
-        		<router-link :to="link" class="title is-4">일상생활 속 나의 성격 유형은?</router-link><br>
+        		<p class="title is-4">{{ testname }}<br></p>
         		<p class="subtitle is-6">제작자 : {{ author }}</p>
       		</div>
     	</div>
@@ -16,14 +16,18 @@
       	{{ description }}
       	<br>
     	</div>
-    </div>
-    </div>
+	</div>
+	</router-link>
+
+	
 </template>
 
 <script>
     export default {
         name: 'card',
         props: {
+			imgname: String,
+			testname: String,
             author: String,
             description: String,
 			link: String
