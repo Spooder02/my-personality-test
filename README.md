@@ -1,4 +1,4 @@
-# project
+# 개인 맞춤 심리테스트 서비스
 
 ## Project setup
 ```
